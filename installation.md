@@ -31,7 +31,7 @@ The first command will open up a browser window that displays your notebooks. Yo
 
 To create a connection to DB2 with the Python DB2 extensions you must install the ibm_db package. This package adds appropriate database commands to Python so that it can access the data directly. The ibm_db package is not available as part of the Anaconda/Miniconda package so you need to use a different command to install it.
 
-For the MacOS and Linux environments, a compiler is already installed that will build the ibm_db extensions. You only need to issue the following command to install the DB2 drivers:
+For the Linux environments, a compiler is already installed that will build the ibm_db extensions. You only need to issue the following command to install the DB2 drivers:
 ```
 easy_install ibm_db
 ```
