@@ -27,20 +27,20 @@ jupyter notebook --no-browser (runs as a service)
 ```
 The first command will open up a browser window that displays your notebooks. You can click on one of these notebooks to see the contents. If no notebooks are available, you will need to move the files in the Github jupyter directory to a local folder on your system that the program can access.
 
-### DB2 Extensions
+### Db2 Extensions
 
-To create a connection to DB2 with the Python DB2 extensions you must install the ibm_db package. This package adds appropriate database commands to Python so that it can access the data directly. The ibm_db package is not available as part of the Anaconda/Miniconda package so you need to use a different command to install it.
+To create a connection to Db2 with the Python Db2 extensions you must install the ibm_db package. This package adds appropriate database commands to Python so that it can access the data directly. The ibm_db package is not available as part of the Anaconda/Miniconda package so you need to use a different command to install it.
 
 For the Linux environments, a compiler is already installed that will build the ibm_db extensions. You only need to issue the following command to install the DB2 drivers:
 ```
 easy_install ibm_db
 ```
-On Windows, there is no default compiler. For Python V2, Microsoft makes available a C compiler just for Python usage. To find this compiler, search for "Python 2.7 C Compiler Windows" and then download and install this compiler. Once that is done you may also have to install the DB2 Client drivers. These drivers are part of a DB2 database installation, so you may already have them installed. If not, search for the DB2 Client Drivers and download one appropriate for your platform. These drivers are needed for compiling the code.
+On Windows, there is no default compiler. For Python V2, Microsoft makes available a C compiler just for Python usage. To find this compiler, search for "Python 2.7 C Compiler Windows" and then download and install this compiler. Once that is done you may also have to install the Db2 Client drivers. These drivers are part of a Db2 database installation, so you may already have them installed. If not, search for the DB2 Client Drivers and download one appropriate for your platform. These drivers are needed for compiling the code.
 
-Once you've installed the DB2 driver, note its location on disk. The following commands need to be issued to get the driver properly installed.
+Once you've installed the Db2 driver, note its location on disk. The following commands need to be issued to get the driver properly installed.
 ```
 set IBM_DB_HOME=c:\Program Files\IBM\SQLLIB\    -- Location of DB2 installation
 cd Program files\ibm\sqllib\dsdriver\python32   -- Move to the directory in your command line
 easy_install ibm_db
 ```
-When the command completes you will have access to DB2 from within the Jupyter notebooks.
+When the command completes you will have access to Db2 from within the Jupyter notebooks.
