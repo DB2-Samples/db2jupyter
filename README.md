@@ -1,14 +1,14 @@
-# DB2 Jupyter Notebook Extensions
-A Jupyter notebook and magic functions to demonstrate DB2 LUW V11 features.
+# Db2 Jupyter Notebook Extensions
+A Jupyter notebook and magic functions to demonstrate Db2 LUW 11 features.
 
-This code is imported as a Jupyter notebook extension in any notebooks you create with DB2 code in it. Place the following line of code in any notebook that you want to use these commands with:
+This code is imported as a Jupyter notebook extension in any notebooks you create with Db2 code in it. Place the following line of code in any notebook that you want to use these commands with:
 <pre>
 &#37;run db2.ipynb
 </pre>
 
-This code defines a Jupyter/Python magic command called %sql which allows you to execute DB2 specific calls to 
+This code defines a Jupyter/Python magic command called %sql which allows you to execute Db2 specific calls to 
 the database. There are other packages available for manipulating databases, but this one has been specifically
-designed for demonstrating a number of the SQL features available in DB2.
+designed for demonstrating a number of the SQL features available in Db2.
 
 There are two ways of executing the %sql command. A single line SQL statement would use the
 line format of the magic command:
