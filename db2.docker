@@ -1,7 +1,7 @@
 #
 # Jupyter notebooks for Db2 using Python 3.x format
 # Version 1.0
-# 2017-09-21
+# 2017-09-25
 # Author: George Baklarz
 #
 
@@ -12,8 +12,6 @@ ENV   DESCRIPTION="Db2 Jupyter Notebook" \
       BUILD_DATE="2017-09-21"
       
 EXPOSE 8888
-
-VOLUME /opt/notebooks
 
 #
 # Need compiler in this container for the Db2 drivers
@@ -35,6 +33,11 @@ RUN mkdir /root/.jupyter
 # Generate a null password for the Jupyter notebook connection
 #
 RUN echo "c.NotebookApp.token = u''" >> ~/.jupyter/jupyter_notebook_config.py
+
+#
+# Pull Db2 Jupyter notebook values from github repository
+#
+RUN git clone git://github.com/DB2-Samples/db2jupyter.git /opt/notebooks
 
 #
 # Command to start Jupyter in the container
