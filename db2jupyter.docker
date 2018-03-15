@@ -1,61 +1,45 @@
 #
 # Jupyter notebooks for Db2 using Python 3.x format
 # Version 1.3
-# 2017-12-15
+# 2018-03-15
 # Author: George Baklarz
 #
 
-# docker build -t db2jupyter -f db2jupyter.docker . 
+FROM continuumio/anaconda3
 
-FROM ubuntu:latest
-
-# Get some programs we need to unpack and install stuff
-
-RUN apt-get update && apt-get install -y curl bzip2 build-essential git libxml2
-
-# Install miniconda to /miniconda
-
-RUN curl -LO http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-    bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b && \
-    rm Miniconda3-latest-Linux-x86_64.sh
-
-# Add miniconda to the path so we can execute the commands
-
-ENV PATH=/miniconda/bin:${PATH}
+# 1. Update the distribution
+# 2. Install Pixiedust library
+# 3. Update apt-get and install the gcc compiler
+# 4. easy_install the Db2 drivers (ibm-db)
+# 5. Remove temp files
 
 RUN conda update -y conda && \
-    conda install -y \
-    jupyter \
-    matplotlib \
-    pandas \
-    gcc_linux-64
+    pip install pixiedust && \
+    apt-get update && \ 
+    apt-get install -y gcc  && \
+    easy_install ibm-db && \
+    rm -rf /var/lib/apt/lists/*
+ 
+# Create the directory for Jupyter defaults and insert the settings into the file
+# 1. Allow connection without a password
+# 2. True deletion of files (bypasses a bug in Jupyter)
+# 3. Allow root to run Jupyter
+# 4. Clone the Db2-Samples Jupyter notebooks files into the /opt/notebooks directory
 
-# Install IBM pixiedust extensions
+RUN mkdir /root/.jupyter && \
+    echo "c.NotebookApp.token = u''" >> ~/.jupyter/jupyter_notebook_config.py &&  \
+    echo "c.FileContentsManager.delete_to_trash=False" >> ~/.jupyter/jupyter_notebook_config.py && \
+    echo "c.NotebookApp.allow_root=True" >>  ~/.jupyter/jupyter_notebook_config.py && \
+    git clone git://github.com/DB2-Samples/db2jupyter.git /opt/notebooks
 
-RUN pip install pixiedust
-
-# Easy Install will install the Db2 Python driver
-
-RUN easy_install ibm-db
-
-# Create the directory for jupyter defaults
-
-RUN mkdir /root/.jupyter
-
-# Generate a null password for the Jupyter notebook connection
-
-RUN echo "c.NotebookApp.token = u''" >> ~/.jupyter/jupyter_notebook_config.py
-
-# Pull Db2 Jupyter notebook values from github repository
-
-RUN git clone git://github.com/DB2-Samples/db2jupyter.git /opt/notebooks
-
+#
 # Command to start Jupyter in the container
+#
 
 CMD jupyter notebook --NotebookApp.token= --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root
 
 ENV   DESCRIPTION="Db2 Jupyter Notebook" \
-      VERSION="1.1" \
-      BUILD_DATE="2017-12-15"
+      VERSION="1.3" \
+      BUILD_DATE="2018-03-15"
       
 EXPOSE 8888
