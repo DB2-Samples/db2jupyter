@@ -54,8 +54,6 @@ the SQL:
 
 - -d - Delimiter: Change SQL delimiter to "@" from ";"
 - -q - Quiet: Quiet results - no answer set or messages returned from the function
-- -n - No result set: Execute all of the SQL as commands rather than select statements (no answer sets) 
-- -s - SQL: Execute everything as SELECT statements. By default, SELECT, VALUES, and WITH are considered part of an answer set, but it is possible that you have an SQL statement that does not start with any of these keywords but returns an answer set.
 - -r - Return the result set as a data frame for Python usage
 - -t - Time: Time the following SQL statement and return the number of times it executes in 1 second
 - -j - JSON: Create a pretty JSON representation. Only the first column is formatted
@@ -63,6 +61,7 @@ the SQL:
 - -pb - Plot Bar: Plot the results as a bar chart
 - -pl - Plot Line: Plot the results as a line chart
 - -pp - Plot Pie: Plot the results as a pie chart
+- -i - Interactive plotting and viewing of the data
 - -sampledata - Create and load the EMPLOYEE and DEPARTMENT tables
 
 One final note. You can pass python variables to the %sql command by using the \{\} braces with the name of the
@@ -71,3 +70,8 @@ SQL command requires it. For instance, the following example will find employee 
 <pre>
 empno = '000010'
 %sql SELECT LASTNAME FROM EMPLOYEE WHERE EMPNO='{empno}'
+</pre>
+The other option is to use a colon in front of a variable name and then no quotes are required.
+<pre>
+%sql SELECT LASTNAME FROM EMPLOYEE WHERE EMPNO=:empno
+</pre>
