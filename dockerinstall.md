@@ -13,12 +13,12 @@ docker build -t db2jupyter -f db2jupyter.docker .    <- Note the period at the e
 
 5) Once the build is complete (there will be some warning messages with the ibm_db creation) you can now run the docker container with the following command.
 ```Python
-docker run --name db2jupyter -p 8888:8888 db2jupyter 
+docker run --name db2jupyter -d -p 8888:8888 db2jupyter 
 ```
 
 6) If  port 8888 is already in use on your system you will have to give it a different port number. For instance, the following command will map the host port 9999 to port 8888 inside the Docker container.
 ```Python
-docker run --name db2jupyter -p 9999:8888 db2jupyter 
+docker run --name db2jupyter -d -p 9999:8888 db2jupyter 
 ```
 
 7) Use your favorite browser to navigate to `localhost:8888` and all of the Db2 notebooks will be listed and available for use.
