@@ -12,6 +12,7 @@ Download the Anaconda or Miniconda package applicable to your platform. Minicond
 After installing Anaconda, you should issue the following commands from a command line shell that will update and install components required by Db2 notebooks.
 ```
 conda update conda      - This will update the Anaconda distribution so you have the latest code
+conda install -y -c conda-forge ipywidgets qgrid - Add components needed for displaying result tables 
 apt-get update          - Update apt-get catalog
 apt-get install -y gcc  - Make sure a C compiler is available for the Db2 driver
 easy_install ibm-db     - Install the Db2 Python drivers
