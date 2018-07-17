@@ -9,15 +9,12 @@ Anaconda is an Open Data Science Platform that is powered by Python http://www.c
 
 Download the Anaconda or Miniconda package applicable to your platform. Miniconda creates the minimal system required for using Python and Jupyter, while Anaconda installs all major packages. There are two versions of Python - V2 or V3. While it doesn't matter which one you use for most notebooks, there are some situations where you may want to use the Python 2 library. For Windows I would recommend using Python 2 in order to use the free Microsoft Compiler for Python. This becomes important when you want to add the ibm_db package to connect to a DB2 server.
 
-After installing Anaconda/Miniconda, you should issue the following commands from a shell that will update and install components required by the notebook.
-
+After installing Anaconda, you should issue the following commands from a command line shell that will update and install components required by Db2 notebooks.
 ```
-conda update conda      - This will update the tool itself so you have the latest code
-conda install jupyter   - This will install the jupyter notebook
-conda install maplotlib - This library is used for plotting graphs
-conda install pandas    - This library allows you to run SQL commands against 
-                          a database and display the results
-conda update libgcc     - This is the compiler for Python extensions
+conda update conda      - This will update the Anaconda distribution so you have the latest code
+apt-get update          - Update apt-get catalog
+apt-get install -y gcc  - Make sure a C compiler is available for the Db2 driver
+easy_install ibm-db     - Install the Db2 Python drivers
 ```
 
 At this point your installation should have Jupyter available on your system. To start the notebook server you need to issue the following command:
