@@ -20,7 +20,7 @@ FROM continuumio/anaconda3
 # 5. Remove temp files
 
 RUN conda update -y conda && \
-    pip install pixiedust && \
+    pip install pixiedust qgrid && \
     apt-get update && \ 
     apt-get install -y gcc  && \
     easy_install ibm-db && \
