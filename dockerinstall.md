@@ -3,17 +3,17 @@ You can create a Docker image that will contain Jupyter Notebooks, the Db2 drive
 
 Assuming that you have Docker running on Windows, Mac, or Linux, the following commands will create a Docker image for you.
 
-# Download the `db2jupyter.docker` file and place it into a directory of your choice
-# Open up a command window that is able to issue Docker commands (either use Kitematic CLI command line, or a terminal window on Mac or Linux).
-# Navigate to the directory that the `db2jupyter.docker` file is located (i.e. cd or chdir)
-# Issue the following command to create a Docker image:
+1) Download the `db2jupyter.docker` file and place it into a directory of your choice
+2) Open up a command window that is able to issue Docker commands (either use Kitematic CLI command line, or a terminal window on Mac or Linux).
+3) Navigate to the directory that the `db2jupyter.docker` file is located (i.e. cd or chdir)
+4) Issue the following command to create a Docker image:
 ```Python
 docker build -t db2jupyter -f db2jupyter.docker .    <- Note the period at the end
 ```
 
-# Once the build is complete (there will be some warning messages with the ibm_db creation) you can now run the docker container with (Note: if port 8888 is already in use on your system you will have to give it a different port number).
+5) Once the build is complete (there will be some warning messages with the ibm_db creation) you can now run the docker container with (Note: if port 8888 is already in use on your system you will have to give it a different port number).
 ```Python
 docker run -p 8888:8888 db2jupyter 
 ```
 
-# Use your favorite browser to navigate to `localhost:8888` and all of the Db2 notebooks will be listed
+6) Use your favorite browser to navigate to `localhost:8888` and all of the Db2 notebooks will be listed
