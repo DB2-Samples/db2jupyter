@@ -65,4 +65,4 @@ The other option is to use a colon in front of a variable name and then no quote
 %sql SELECT LASTNAME FROM EMPLOYEE WHERE EMPNO=:empno
 ```
 
-For more documentation and examples, see the Db2 Jupyter Tutorial.
+For more documentation and examples, see the Db2 Jupyter Tutorial or sign-up for a free [Db2 proof of technology](https://www.ibm.com/cloud/garage/tutorials/ibm-db2-local/modern-application-development-with-db-2) that contains the code from this GitHub repository.
