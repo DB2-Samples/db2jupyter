@@ -1,7 +1,7 @@
 #
 # Jupyter notebooks for Db2 using Python 3.x format
-# Version 1.4
-# 2018-07-17
+# Version 1.5
+# 2019-04-28
 # Author: George Baklarz
 #
 
@@ -41,9 +41,10 @@ RUN mkdir /root/.jupyter && \
 
 #
 # Command to start Jupyter in the container
+# Updated --ip='*' to --ip='0.0.0.0' 
 #
 
-CMD jupyter notebook --NotebookApp.token= --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root
+CMD jupyter notebook --NotebookApp.token= --notebook-dir=/opt/notebooks --ip='0.0.0.0' --port=8888 --no-browser --allow-root
 
 ENV   DESCRIPTION="Db2 Jupyter Notebook" \
       VERSION="1.4" \
